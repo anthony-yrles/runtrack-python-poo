@@ -4,20 +4,25 @@ class Livre:
         self.__auteur = auteur
         self.__number_of_page = number_of_page
         self.__disponible = disponible
+
     def set__titre(self, titre):
         self.__titre = titre
+
     def set__auteur(self, auteur):
         self.__auteur = auteur
+
     def set__number_of_page(self, number_of_page):
         if isinstance(number_of_page, int) and number_of_page >= 1:
             self.__number_of_page = number_of_page
         else:
             print('Le nombre de page doit être un entier positif')
+
     def set__disponible(self, disponible):
         if disponible:
             self.__disponible = False
         else:
             self.__disponible = True
+            
     def get__titre(self):
         return self.__titre
     def get__auteur(self):
