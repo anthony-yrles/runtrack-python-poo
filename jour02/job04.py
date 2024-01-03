@@ -40,14 +40,14 @@ class Student:
         elif self.get__number_of_credit() < 60:
             self.set__level('Insuffisant')
     def studentInfo(self):
+        student._Student__studentEval()
         print(f"Nom = {self.get__name()} \nPrénom = {self.get__last_name()} \nid = {self.get__etudiant_number()} \nNiveau = {self.get__level()}")
 
 
 student = Student('Doe', 'John', 145)
 print(f"L'etudiant n° {str(student.get__etudiant_number())} nommé {student.get__last_name()} {student.get__name()} possede {str(student.get__number_of_credit())} ")
-student.add_credit(30)
+student.add_credit(20)
 student.add_credit(30)
 student.add_credit(20)
 print(f"L'etudiant n° {str(student.get__etudiant_number())} nommé {student.get__last_name()} {student.get__name()} possede {str(student.get__number_of_credit())} ")
-print(student._Student__studentEval())
 student.studentInfo()
