@@ -4,7 +4,7 @@ class Student:
         self.__last_name = last_name
         self.__etudiant_number = etudiant_number
         self.__number_of_credit = number_of_credit
-        self.__level = self._Student__studentEval()
+        self.__level = self.__studentEval()
     def set__name(self, name):
         self.__name = name
     def set__last_name(self, last_name):
