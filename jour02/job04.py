@@ -40,7 +40,7 @@ class Student:
         elif self.get__number_of_credit() < 60:
             self.set__level('Insuffisant')
     def studentInfo(self):
-        print(f"L'etudiant n° {str(student.get__etudiant_number())} nommé {student.get__last_name()} {student.get__name()} est d'un level {student.get__level()} ")
+        print(f"Nom = {self.get__name()} \nPrénom = {self.get__last_name()} \nid = {self.get__etudiant_number()} \nNiveau = {self.get__level()}")
 
 
 student = Student('Doe', 'John', 145)
