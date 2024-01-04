@@ -18,6 +18,7 @@ class CompteBancaire:
             self.__overdraft = False
         else:
             self.__overdraft = True
+
     def get__account_number(self):
         return self.__account_number
     def get__last_name(self):
@@ -28,11 +29,11 @@ class CompteBancaire:
         return self.__account_balance
     def get__overdraft(self):
         return self.__overdraft
-    
+
     def afficher(self):
-        print(f"Le compte numéro {self.get__account_balance()} appartient à {self.get__last_name()} {self.get__first_name()} sont solde est de {self.get__account_balance()}")
+        print(f"Le compte numéro {self.get__account_number()} appartient à {self.get__last_name()} {self.get__first_name()} sont solde est de {self.get__account_balance()}")
     def afficherSolde(self):
-        print(f"Le solde est de {self.get__account_balance()}")
+        print(f"Le solde est de {self.get__account_balance()} €")
     def versement(self, amount_to_add):
         self.set__account_balance(self.get__account_balance() + amount_to_add)
     def retrait(self, amount_to_withdraw: int):
@@ -47,24 +48,24 @@ class CompteBancaire:
     def agios(self):
         if self.get__account_balance() < 0:
             self.set__account_balance(self.get__account_balance() - 8)
-    def virement(self, reference, account_number, amount):
-        if self.get__account_balance > amount:
-            account_number += amount
+    def virement(self, reference, account_number, amount, compte_bancaire):
+        if self.get__account_balance() > amount:
+            compte_bancaire.set__account_balance(compte_bancaire.get__account_balance() + amount)
             self.set__account_balance(self.get__account_balance()- amount)
-            print(f"Virement n°{reference} d'un montant de {amount} effectué vers le compte numéro {account_number} votre solde de compte est {self.get__account_balance()}")
+            print(f"Virement {reference} d'un montant de {amount} € effectué vers le compte numéro {account_number} votre solde de compte est {self.get__account_balance()} €")
         elif self.get__account_balance < amount and self.get__overdraft() == True:
-            account_number += amount
             self.set__account_balance(self.get__account_balance()- amount)
             self.agios()
-            print(f"Virement n°{reference} d'un montant de {amount} effectué vers le compte numéro {account_number} votre solde de compte est {self.get__account_balance()}")
+            print(f"Virement {reference} d'un montant de {amount} € effectué vers le compte numéro {account_number} votre solde de compte est {self.get__account_balance()} €")
         else:
-            print(f"Virement n°{reference} d'un montant de {amount}")
+            print(f"Virement {reference} d'un montant de {amount}")
 
 compte1= CompteBancaire(1, 'Yrles', 'Anthony', 1000, True)
 compte2= CompteBancaire(2, 'Serra', 'Matthis', -300, True)
 
-compte1.virement('Blop', compte2.get__account_number(), 300)
-compte2.afficherSolde()
+compte2.afficher()
+compte1.virement('Blop', compte2.get__account_number(), 300, compte2)
+compte2.afficher()
 
 
     
