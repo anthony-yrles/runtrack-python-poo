@@ -59,7 +59,7 @@ class Joueur:
     def yellow_card_recived(self):
         self.set_yellow_card(self.get_yellow_card() + 1)
 
-    def yellow_card_recived(self):
+    def red_card_recived(self):
         self.set_red_card(self.get_red_card() + 1)
 
     def show_stats(self):
@@ -105,8 +105,16 @@ joueur5 = Joueur("Virgil van Dijk", 4, "Défenseur central", 5, 2, 1, 0)
 
 equipe = Equipe('Olympique de marseille', [])
 equipe.add_player(joueur1)
+equipe.add_player(joueur2)
 equipe.add_player(joueur3)
 equipe.add_player(joueur4)
+equipe.add_player(joueur5)
 equipe.show_player_stats()
 equipe.change_stats(joueur1, 1, "Milieu", 35, 18, 3, 1)
 print(joueur1.show_stats())
+joueur2.yellow_card_recived()
+joueur3.score_a_goal()
+joueur1.red_card_recived()
+joueur4.decisive_passe_done()
+joueur5.yellow_card_recived()
+equipe.show_player_stats()
