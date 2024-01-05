@@ -26,5 +26,3 @@ livre.set__titre('One piece')
 livre.set__number_of_page(4.3)
 livre.set__number_of_page(8)
 print(f"L'auteur du livre {livre.get__titre()} est {livre.get__auteur()} et fais {str(livre.get__number_of_page())} pages")
-
-    
