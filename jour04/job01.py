@@ -18,7 +18,7 @@ class Personne:
         self._age = new_age
 
 class Eleve(Personne):
-    def __init__(self, age):
+    def __init__(self, age = 14):
         Personne.__init__(self, age)
     def allerEnCours(self):
         print('Aller en cours')
@@ -40,6 +40,6 @@ class Professeur(Personne):
         
 
 
-eleve = Eleve(14)
+eleve = Eleve()
 eleve.modifierAge(18)
 eleve.afficherAge()
