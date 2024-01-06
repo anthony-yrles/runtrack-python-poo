@@ -32,20 +32,20 @@ class Personnage:
         # print(self.get_attack_name())
         if selected_attack == "coup de poing":
             print(f"{self.__name} donne un coup de poing à {target.get_name()}")
-            self.set_attack_power(random.randint(0, self.get_attack_power()))
-            target.set_armor(random.randint(0, target.get_armor()))
-            if self.__attack_power > target.get_armor():
-                damage = self.__attack_power - target.get_armor()
+            power_attack = random.randint(0, self.get_attack_power())
+            armor = random.randint(0, target.get_armor())
+            if power_attack > armor:
+                damage = power_attack - armor
                 target.set_life_points(target.get_life_points() - damage)
                 print(f"L'attaque {selected_attack} de {self.__name} inflige {damage} points de dégâts à {target.get_name()}")
                 print(f"{target.get_name()} a maintenant {target.get_life_points()} points de vie")
             else:
                 print(f"L'attaque {selected_attack} de {self.__name} n'inflige aucun dégât à {target.get_name()}")
         elif selected_attack == "soin":
-            self.set_attack_power(random.randint(0, self.get_attack_power()))
+            power_attack = random.randint(0, self.get_attack_power())
             if self.__life_points < 100:
-                print(f"{self.__name} se soigne de {self.__attack_power} points de vie")
-                self.__life_points += self.__attack_power
+                print(f"{self.__name} se soigne de {power_attack} points de vie")
+                self.__life_points += power_attack
                 print(f"{self.__name} a maintenant {self.__life_points} points de vie")
             else:
                 print(f"{self.__name} a déjà tous ses points de vie")
@@ -111,15 +111,6 @@ personnage2 = Personnage("", 0, 0, [], 0)
 level1 = Jeu()
 niveau = level1.level_difficulty()
 level1.launch_game(niveau, personnage1, personnage2)
-
-# personnage1.launch_attack(personnage2)
-# # print(niveau)
-# personnage2.launch_attack(personnage1)
-# # print(niveau)
-# personnage1.launch_attack(personnage2)
-# # print(niveau)
-# personnage2.launch_attack(personnage1)
-# personnage1.launch_attack(personnage2)
 
 while True:
     personnage1.launch_attack(personnage2)
