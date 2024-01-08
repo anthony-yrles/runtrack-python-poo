@@ -89,17 +89,14 @@ class Jeu(Carte):
                             if total == 21:
                                 print(f"Félicitations, vous avez atteint le score de 21. Black Jack!")
                                 jeu_en_cours = False
-                                break
 
                             elif total > 21:
                                 print(f'Bouhouhouhou, vous avez dépassé 21. Vous avez perdu.')
                                 jeu_en_cours = False
-                                break
 
                         elif choice == 'passer':
                             print(f'Vous passez avec {total} points, au tour du joueur suivant')
                             player_total = total
-                            break
 
                 else:
                     total = 0
